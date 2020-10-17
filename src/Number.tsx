@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from './ThemeContext'
 
 const Number: React.FC = ({ children }) => {
+  const { numberColor } = useContext(ThemeContext)
+
   return (
     <span
       style={{
         flex: '0 0 25px',
         overflow: 'hidden',
-        color: 'rgba(149,157,165,.75)',
+        color: numberColor,
         textAlign: 'right',
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap',

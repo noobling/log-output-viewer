@@ -16,12 +16,14 @@
     "@types/jest": "file:../node_modules/@types/jest",
     "@types/node": "file:../node_modules/@types/node",
     "@types/react": "file:../node_modules/@types/react",
+    "@types/react-color": "^3.0.4",
     "@types/react-dom": "file:../node_modules/@types/react-dom",
+    "log-viewer": "file:..",
     "react": "file:../node_modules/react",
+    "react-color": "^2.18.1",
     "react-dom": "file:../node_modules/react-dom",
     "react-scripts": "file:../node_modules/react-scripts",
-    "typescript": "file:../node_modules/typescript",
-    "log-viewer": "file:.."
+    "typescript": "file:../node_modules/typescript"
   },
   "devDependencies": {
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3"

@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from './ThemeContext'
 
 const Container: React.FC = ({ children }) => {
-  return (
-    <div style={{ background: '#242a2e', padding: '1.5rem' }}>{children}</div>
-  )
+  const { background } = useContext(ThemeContext)
+  return <div style={{ background, padding: '1.5rem' }}>{children}</div>
 }
 
 export default Container

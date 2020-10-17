@@ -1,9 +1,43 @@
-import React from 'react'
-
+import React, { useState } from 'react'
 import { LogViewer } from 'log-viewer'
+import { SliderPicker } from 'react-color'
+type Theme = 'dark' | 'light'
 
 const App = () => {
-  const text: any = `yarn run v1.22.4
+  const [theme, setTheme] = useState<Theme>('dark')
+  const [selectedColor, setSelectedColor] = useState<string>('#242a2e')
+  const handleChange = (color: any) => {
+    console.log(color)
+    setSelectedColor(color.hex)
+  }
+  return (
+    <div style={{ display: 'flex', padding: '2rem' }}>
+      <div style={{ minWidth: '200px', marginRight: '2rem' }}>
+        <button
+          style={{ marginBottom: '2rem' }}
+          onClick={() => setTheme(nextTheme(theme))}
+        >
+          Switch to {nextTheme(theme)}
+        </button>
+        <SliderPicker color={selectedColor} onChange={handleChange} />
+      </div>
+
+      <LogViewer
+        text={text}
+        theme={theme}
+        customTheme={{ background: selectedColor }}
+      />
+    </div>
+  )
+}
+
+export default App
+
+function nextTheme(currentTheme: Theme) {
+  return currentTheme === 'dark' ? 'light' : 'dark'
+}
+
+var text = `yarn run v1.22.4
 $ start-server-and-test serve http://localhost:8000 cy:run
 1: starting server using command "npm run serve"
 and when url "http://localhost:8000" is responding with HTTP status code 200
@@ -32,8 +66,3 @@ It looks like this is your first time using Cypress: 4.9.0
 Opening Cypress...
 
 tput: No value for $TERM and no -T specified`
-
-  return <LogViewer text={text} />
-}
-
-export default App

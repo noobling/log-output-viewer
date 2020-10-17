@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Number from './Number'
 import Text from './Text'
+import { ThemeContext } from './ThemeContext'
 
 interface Props {
   text: string
@@ -8,14 +9,17 @@ interface Props {
 }
 
 export default function LineItem({ text, number }: Props) {
+  const { lineBackgroundFocus, lineFontColor, lineFontColorFocus } = useContext(
+    ThemeContext
+  )
   return (
     <div>
       <style
         dangerouslySetInnerHTML={{
           __html: [
             '.line-item:hover {',
-            'background: #2f363d;',
-            'color: #fafbfc; !important;',
+            `background: ${lineBackgroundFocus};`,
+            `color: ${lineFontColorFocus}; !important;`,
             '}'
           ].join('\n')
         }}
@@ -23,7 +27,7 @@ export default function LineItem({ text, number }: Props) {
       <div
         style={{
           lineHeight: '20px',
-          color: '#e1e4e8',
+          color: lineFontColor,
           display: 'flex',
           cursor: 'pointer'
         }}

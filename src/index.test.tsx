@@ -1,7 +1,7 @@
-import { ExampleComponent } from '.'
+import { LogViewer } from '.'
 
-describe('ExampleComponent', () => {
+describe('LogViewerComponent', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+    expect(LogViewer).toBeTruthy()
   })
 })
