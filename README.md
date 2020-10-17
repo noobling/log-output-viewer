@@ -10,6 +10,10 @@
 npm install --save react-log-output
 ```
 
+## Playground
+
+https://noobling.github.io/log-output-viewer/
+
 ## Usage
 
 ```tsx
