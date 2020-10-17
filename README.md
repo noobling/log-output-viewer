@@ -1,29 +1,31 @@
-# log-viewer
+# react-log-output
 
 > React component for displaying log output
 
-[![NPM](https://img.shields.io/npm/v/log-viewer.svg)](https://www.npmjs.com/package/log-viewer) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-log-output.svg)](https://www.npmjs.com/package/react-log-output) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save log-viewer
+npm install --save react-log-output
 ```
 
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
+import React from 'react'
 
-import MyComponent from 'log-viewer'
-import 'log-viewer/dist/index.css'
+import { LogViewer } from 'react-log-output'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+export default function MyAppLogViewer() {
+  const myLogOutput = '...'
+  <LogViewer text={myLogOutput} />
 }
 ```
+
+## Api
+
+Using typescript so you should be able to get intellisense to tell you the api. Otherwise just read the source
 
 ## License
 

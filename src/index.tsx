@@ -7,9 +7,21 @@ type CustomTheme<T> = {
   [P in keyof T]?: T[P]
 }
 
+/**
+ * Create your highly customised log viewer
+ */
 interface Props {
+  /**
+   * Your log output you want to display
+   */
   text: string
+  /**
+   * Choose from default themes to customise appearance
+   */
   theme?: 'light' | 'dark'
+  /**
+   * Override the default themes' properties
+   */
   customTheme?: CustomTheme<Theme>
 }
 
