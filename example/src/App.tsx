@@ -7,7 +7,6 @@ const App = () => {
   const [theme, setTheme] = useState<Theme>('dark')
   const [selectedColor, setSelectedColor] = useState<string>('#242a2e')
   const handleChange = (color: any) => {
-    console.log(color)
     setSelectedColor(color.hex)
   }
   return (
@@ -23,6 +22,7 @@ const App = () => {
       </div>
 
       <LogViewer
+        className='custom-class'
         text={text}
         theme={theme}
         customTheme={{ background: selectedColor }}

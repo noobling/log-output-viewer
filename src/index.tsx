@@ -10,7 +10,7 @@ type CustomTheme<T> = {
 /**
  * Create your highly customised log viewer
  */
-interface Props {
+export interface LogViewerProps {
   /**
    * Your log output you want to display
    */
@@ -25,13 +25,15 @@ interface Props {
   customTheme?: CustomTheme<Theme>
 }
 
-export const LogViewer = ({ text, theme, customTheme }: Props) => {
-  const lines = text.split(/\r?\n/)
+export const LogViewer: React.FC<
+  LogViewerProps & React.ComponentProps<'div'>
+> = ({ text, theme, customTheme, ...rest }) => {
+  const lines = text?.split(/\r?\n/)
   const selectedTheme = theme === 'light' ? themes.light : themes.dark
   const userTheme = { ...selectedTheme, ...customTheme }
   return (
     <ThemeContext.Provider value={userTheme}>
-      <Container>
+      <Container {...rest}>
         {lines.map((line, index) => (
           <LineItem key={index} text={line} number={index + 1} />
         ))}
